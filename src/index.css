@@ -1,0 +1,448 @@
+@import url('https://fonts.googleapis.com/css2?family=Syne+Mono&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+
+.app {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgb(75, 66, 64);
+  display: flex;
+  flex-direction: column;
+}
+
+.game {
+  align-items: center;
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+.code {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  width: 35%;
+}
+
+.game-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  width: 65%;
+}
+
+.code-header {
+  padding: 1vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgb(48, 40, 38);
+  height: 14%;
+  width: 100%;
+  color: rgb(156, 140, 138);
+  font-family: 'Syne Mono', monospace, 'Courier New', Courier, monospace;
+  font-size: 1.8vw;
+}
+
+.CSS-editor,
+.HTML-viewer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  background: rgb(48, 40, 38);
+}
+
+.div-info {
+  padding: 1vw;
+  display: flex;
+  justify-content: space-around;
+  font-family: 'Syne Mono', monospace, 'Courier New', Courier, monospace;
+  font-size: 1.2vw;
+  background: white;
+  width: 98%;
+  height: 89%;
+}
+
+.levels-btn {
+  width: 3vw;
+  height: 2vw;
+  background: url(../assets/list.svg) no-repeat;
+  background-size: 100%;
+  background-position: center;
+  border: none;
+  z-index: 2;
+}
+
+.levels-btn:focus {
+  outline: none;
+}
+
+.levels-btn:hover {
+  cursor: pointer;
+  background: url(../assets/listActive.svg) no-repeat;
+  background-size: 100%;
+  background-position: center;
+}
+
+.enter-btn,
+.help-btn,
+.recet-btn {
+  width: 5vw;
+  height: 2vw;
+  border: none;
+  border-radius: 15%;
+  background: rgba(83, 71, 69, 0.815);
+  color: white;
+  font-family: 'Syne Mono', monospace, 'Courier New', Courier, monospace;
+  font-size: 1.3vw;
+}
+
+.help-btn {
+  width: 7.5vw;
+}
+
+.recet-btn {
+  margin-bottom: 1.5vw;
+  margin-left: 25vw;
+}
+
+.help-btn:focus,
+.enter-btn:focus,
+.recet-btn:focus {
+  outline: none;
+}
+
+.help-btn:hover,
+.enter-btn:hover,
+.recet-btn:hover {
+  cursor: pointer;
+  background: rgba(86, 117, 143, 0.918);
+}
+
+.input-text {
+  order: -1;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  text-align: justify;
+  text-justify: newspaper;
+  outline: none;
+  border: none;
+  font-family: 'Syne Mono', monospace, 'Courier New', Courier, monospace;
+  color: rgb(48, 40, 38);
+  font-size: 1.5vw;
+  width: 75%;
+  height: 2.5vw;
+}
+
+.html-code {
+  box-sizing: border-box;
+  font-family: 'Syne Mono', monospace, 'Courier New', Courier, monospace;
+  font-size: 1.5vw;
+  padding: 1vh;
+  background-color: rgb(75, 66, 64);
+  width: 98%;
+  height: 89%;
+  white-space: pre-line;
+}
+
+.highlight {
+  outline: rgb(48, 40, 38) 2px solid !important;
+}
+
+popup {
+  display: inline-block;
+  position: absolute;
+  margin-bottom: 20vw;
+  background-color: rgba(156, 140, 138, 0) !important;
+  font-size: 2vw;
+}
+
+.div-tag {
+  padding: 0;
+  all: initial;
+  display: block;
+  background-color: rgb(75, 66, 64) !important;
+  font-family: 'Syne Mono', monospace, 'Courier New', Courier, monospace;
+  font-size: 1.5vw;
+}
+
+/* I am sorry for this, really sorry */
+.that-box-has-children > *:not(:first-child):not(:last-child) {
+  box-sizing: border-box !important;
+  padding-left: 3vw !important;
+}
+
+.html-code > .hljs {
+  padding: 0;
+}
+
+.levels-manager {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  left: -35%;
+  width: 35%;
+  height: 100%;
+  background-color: rgb(48, 40, 38);
+  transition: left 1s;
+}
+
+.top-manager {
+  left: 0;
+}
+
+.levels-manager > ol > li {
+  width: 60%;
+  margin: 0.3vw 0;
+  padding-left: 0.2vw;
+  color: rgb(156, 140, 138);
+  font-size: 1.2vw;
+  font-family: 'Syne Mono', monospace, 'Courier New', Courier, monospace;
+  border-radius: 15%;
+}
+
+.levels-manager > ol > li::before {
+  position: absolute;
+  content: '';
+  display: block;
+  margin-left: -5vw;
+  width: 1.5vw;
+  height: 1.5vw;
+  background: url(../assets/flaky.svg);
+  background-size: 100%;
+}
+
+.levels-manager > ol > li.help::before {
+  background: url(../assets/cancel.svg);
+  background-size: 100%;
+}
+
+.levels-manager > ol > li.done::before {
+  background: url(../assets/checkMark.svg);
+  background-size: 100%;
+}
+
+.levels-manager > ol > li:hover {
+  cursor: pointer;
+  background: rgb(83, 71, 69);
+}
+
+.levels-manager > ol {
+  width: 35vw;
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  padding-top: 13vh;
+  padding-left: 7vw;
+}
+
+.current-level {
+  background: rgba(83, 71, 69, 0.815);
+}
+
+carbon,
+painkiller,
+patch,
+#square-patch,
+iodine,
+bandage,
+termometer {
+  display: block;
+}
+
+.table {
+  margin-top: 15vw;
+  font-family: 'Syne Mono', monospace, 'Courier New', Courier, monospace;
+  font-size: 4vw;
+  color: rgb(165, 128, 119);
+  display: flex;
+  justify-content: space-evenly;
+  background: url(../assets/table.svg) no-repeat;
+  background-size: 100%;
+  background-position: center;
+  width: 44vw;
+  height: 42vh;
+  align-items: center;
+}
+
+painkiller,
+carbon {
+  width: 5vw;
+  height: 8vw;
+  background: url(../assets/painkiller6.svg) no-repeat;
+  background-position: center;
+  background-size: 100%;
+}
+
+carbon {
+  background: url(../assets/carbon6.svg) no-repeat;
+  background-position: center;
+  background-size: 100%;
+}
+
+painkiller.pill,
+carbon.pill {
+  width: 3.5vw;
+  height: 3.5vw;
+  background: url(../assets/painkiller.svg) no-repeat;
+  background-position: center;
+  background-size: 110%;
+}
+
+carbon.pill {
+  background: url(../assets/carbon.svg) no-repeat;
+  background-position: center;
+  background-size: 110%;
+}
+
+patch {
+  width: 3.1vw;
+  height: 9vw;
+  background: url(../assets/patch.svg) no-repeat;
+  background-position: center;
+  background-size: 100%;
+}
+
+#square-patch {
+  width: 5vw;
+  height: 6vw;
+  background: url(../assets/patchSquare.svg) no-repeat;
+  background-position: center;
+  background-size: 100%;
+}
+
+iodine,
+bandage {
+  width: 4vw;
+  height: 8vw;
+  background: url(../assets/iodine.svg) no-repeat;
+  background-position: center;
+  background-size: 100%;
+}
+
+bandage {
+  background: url(../assets/bandage.svg) no-repeat;
+  background-position: center;
+  background-size: 100%;
+}
+
+termometer {
+  width: 2vw;
+  height: 10vw;
+  background: url(../assets/thermometer.svg) no-repeat;
+  background-position: center;
+  background-size: 100%;
+}
+
+box {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 11vw;
+  height: 11vw;
+  background: url(../assets/box.svg) no-repeat;
+  background-position: center;
+  background-size: 100%;
+}
+
+#red {
+  background: url(../assets/boxRed.svg) no-repeat;
+  background-position: center;
+  background-size: 100%;
+}
+
+.text-game {
+  text-align: center;
+  padding-top: 2vw;
+  order: -1;
+  color: rgb(156, 140, 138);
+  font-family: 'Syne Mono', monospace, 'Courier New', Courier, monospace;
+  font-size: 2.5vw;
+  height: 8%;
+  width: 65%;
+}
+
+.description-name {
+  padding-top: 5vw;
+}
+
+.description-name,
+.description-task {
+  font-size: 2vw;
+}
+
+footer {
+  order: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgb(48, 40, 38);
+  height: 7%;
+  width: 100%;
+  color: rgb(156, 140, 138);
+  font-family: 'Syne Mono', monospace, 'Courier New', Courier, monospace;
+  font-size: 2vw;
+}
+
+.year-text {
+  margin-left: 3vw;
+  margin-right: 3vw;
+  text-align: center;
+  color: rgb(156, 140, 138);
+  font-family: 'Syne Mono', monospace, 'Courier New', Courier, monospace;
+  height: 2vw;
+  width: 4vw;
+}
+
+.git-link {
+  align-items: center;
+  height: 2.5vw;
+  width: 2.5vw;
+  background: url(../assets/gitCat.svg) no-repeat;
+  background-size: 100%;
+}
+
+.rs-logo {
+  align-items: center;
+  height: 2.3vw;
+  width: 6vw;
+  background: url(../assets/rsLogo.svg) no-repeat;
+  background-size: 100%;
+}
+
+.anime {
+  animation: brr 1s infinite ease;
+}
+
+@keyframes brr {
+  10% {
+    transform: skew(5deg);
+  }
+  50% {
+    transform: skew(0deg);
+  }
+  60% {
+    transform: skew(-5deg);
+  }
+  100% {
+    transform: skew(0deg);
+  }
+}
